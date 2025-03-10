@@ -40,7 +40,7 @@ NumPy (pip install numpy)
 
 🔹 Clone the Repository
 
-git clone https://github.com/yourusername/VeriFace.git
+git clone https://github.com/AthiraaaaaaS/VeriFace.git
 cd VeriFace
 
 🔹 Run the Application
@@ -76,7 +76,7 @@ This project is licensed under the MIT License.
 
 📞 Contact
 
-For any queries, reach out to your.email@example.com or visit https://github.com/yourusername/VeriFace.
+For any queries, reach out to your.email@example.com or visit https://github.com/AthiraaaaaaS/VeriFace.
 
 🚀 Start using VeriFace today for seamless, AI-powered attendance tracking!
 
