@@ -1,4 +1,4 @@
-# Attendance Monitoring System
+# VeriFace : An AI powered Attendance Monitoring System
 
 ## Overview
 The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
