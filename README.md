@@ -1,82 +1,127 @@
-VeriFace: Attendance Monitoring System Using Face ID
+# Attendance Monitoring System
 
-📌 Introduction
+## Overview
+The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
 
-VeriFace is an AI-powered attendance monitoring system that uses face recognition technology to automate attendance marking. It enhances accuracy, eliminates manual effort, and prevents proxy attendance.
+---
 
-The system is built using:
+## Features
 
-dlib’s ResNet-34 deep metric learning model for face recognition.
+- **Real-Time Face Recognition:** Uses **OpenCV DNN** and **ArcFace ONNX** models for accurate face detection.
+- **Live Camera Monitoring:** Continuous video feed to detect and recognize faces.
+- **Attendance Tracking:** Logs **first seen** and **last seen** timestamps for each user.
+- **Admin Panel:** Secure login for viewing attendance records.
+- **SQLite Database:** Stores user face encodings and attendance logs efficiently.
 
-OpenCV for real-time video capture.
+---
 
-Python for backend logic.
+## Technologies Used
 
-CSV (with future SQLite integration) for attendance storage.
+- **Python 3.x**
+- **PyQt5** – GUI framework
+- **OpenCV** – Computer vision and face detection
+- **Face Recognition** – Facial encoding and matching
+- **SQLite3** – Database for storing user information and attendance logs
 
-🚀 Features
+---
 
-✅ Real-time face detection and recognition✅ Automated attendance marking✅ Uses Euclidean distance for face matching✅ Prevents duplicate entries for the same day✅ Supports database integration (future scope)
+## Installation
 
-🛠️ System Architecture
-
-1️⃣ User Interface (GUI & Camera Module): Captures live video2️⃣ Face Recognition Module: Detects and recognizes faces3️⃣ Attendance Marking Module: Logs attendance in CSV4️⃣ Utility Module: Handles errors and file management5️⃣ Database (CSV / Future SQLite): Stores attendance records
-
-🏗️ Installation Guide
-
-🔹 Prerequisites
-
-Ensure you have the following installed:
-
-Python 3.x
-
-OpenCV (pip install opencv-python)
-
-face_recognition (pip install face-recognition)
-
-dlib (pip install dlib)
-
-NumPy (pip install numpy)
-
-🔹 Clone the Repository
-
-git clone https://github.com/AthiraaaaaaS/VeriFace.git
+### 1. Clone the Repository
+```bash
+git clone https://github.com/YourUsername/VeriFace.git
 cd VeriFace
+```
 
-🔹 Run the Application
+### 2. Set Up a Virtual Environment (Recommended)
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-python main.py
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-🎯 How It Works
+---
 
-1️⃣ Run the program using python main.py.2️⃣ Webcam captures a live video frame.3️⃣ Face detection is performed using OpenCV & dlib.4️⃣ Feature extraction (128D vector) is done using ResNet-34.5️⃣ Face matching is performed using Euclidean distance.6️⃣ If a match is found, attendance is marked in attendance.csv.
+## Project Structure
 
-📂 Project Structure
-
+```
 VeriFace/
-│── known_faces/           # Folder to store known face images
-│── attendance.csv         # CSV file to log attendance
-│── main.py                # Entry point of the system
-│── attendance.py          # Attendance marking module
-│── face_recognition_model.py  # Face recognition functions
-│── utils.py               # Utility functions
-│── README.md              # Project documentation
+├── models/                     # Pre-trained face recognition models
+│   ├── arcface.onnx
+│   ├── deploy.prototxt
+│   ├── res10_300x300_ssd.caffemodel
+├── gui/                        # GUI components
+│   ├── camera_module.py        # Camera UI and face recognition
+│   ├── attendance_window.py    # Admin panel for attendance logs
+├── known_faces/                # Folder for storing user images
+├── attendance.db               # SQLite database
+├── attendance.py               # Handles attendance logging
+├── face_recognition_module.py  # Recognizes faces from live video feed
+├── live_camera.py              # Background CCTV-style live monitoring
+├── main.py                     # Launches the application
+├── utils.py                    # Utility functions for database operations
+├── add_user.py                 # Adds new users to the database
+├── requirements.txt            # Required Python dependencies
+└── README.md                   # Project documentation
+```
 
-🛠️ Future Enhancements
+---
 
-✅ Upgrade CSV storage to SQLite/MySQL✅ Add a PyQt-based GUI✅ Develop a mobile app for attendance tracking✅ Improve accuracy with advanced AI models
+## Usage
 
-🤝 Contributing
+### 1. Adding a User
+To add a new user with their face encoding:
+```bash
+python add_user.py "John Doe" "known_faces/johndoe.jpg"
+```
 
-Feel free to contribute by creating pull requests. For major changes, open an issue first to discuss your ideas.
+### 2. Running the Application
+```bash
+python main.py
+```
+This will:
+- Open the **camera interface**
+- Recognize faces and **log attendance**
+- Allow admins to **view attendance records**
 
-📜 License
+### 3. Admin Login
+- Click **"Login as Admin"**
+- Enter the password (**default: admin123**)
+- View **first seen** and **last seen** timestamps
 
-This project is licensed under the MIT License.
+---
 
-📞 Contact
+## Database Schema
 
-For any queries, reach out to your.email@example.com or visit https://github.com/AthiraaaaaaS/VeriFace.
+### Users Table (`users`)
+| Column  | Type    | Description        |
+|---------|--------|--------------------|
+| `id`    | INTEGER | Unique user ID |
+| `name`  | TEXT   | User’s full name  |
+| `encoding` | BLOB | Face encoding for recognition |
 
-🚀 Start using VeriFace today for seamless, AI-powered attendance tracking!
+### Attendance Table (`attendance`)
+| Column  | Type    | Description        |
+|---------|--------|--------------------|
+| `id`    | INTEGER | Unique record ID |
+| `user_id` | INTEGER | References `users.id` |
+| `first_seen` | TEXT | First time user was detected |
+| `last_seen` | TEXT | Last recorded presence |
 
+---
+
+## Future Enhancements
+
+- **Multi-camera support** for large-scale implementations.
+- **Cloud integration** for remote attendance tracking.
+- **Mobile application** for on-the-go access.
+- **Integration with RFID and biometrics** for multi-factor authentication.
+
+---
+
+## License
+This project is licensed under the **MIT License**.

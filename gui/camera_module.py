@@ -1,9 +1,9 @@
-import sys
-import cv2
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QLineEdit, QMessageBox
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import QTimer
+import cv2
 from face_recognition_module import recognize_face
+from gui.attendance_window import AttendanceWindow
 
 class AttendanceApp(QWidget):
     def __init__(self):
@@ -16,26 +16,31 @@ class AttendanceApp(QWidget):
         self.timer.timeout.connect(self.update_frame)
 
     def setup_ui(self):
+        """Sets up the UI Layout"""
         layout = QVBoxLayout()
         self.camera_label = QLabel(self)
         self.camera_label.setFixedSize(640, 480)
         layout.addWidget(self.camera_label)
-        self.start_button = QPushButton("Start Camera")
-        self.start_button.clicked.connect(self.start_camera)
-        layout.addWidget(self.start_button)
-        self.capture_button = QPushButton("Mark Attendance")
-        self.capture_button.clicked.connect(self.capture_frame)
-        layout.addWidget(self.capture_button)
-        self.retake_button = QPushButton("Retake Image")
-        self.retake_button.clicked.connect(self.start_camera)
-        layout.addWidget(self.retake_button)
+
+        # ✅ Admin Login
+        self.password_field = QLineEdit()
+        self.password_field.setPlaceholderText("Enter Admin Password")
+        self.password_field.setEchoMode(QLineEdit.Password)
+        layout.addWidget(self.password_field)
+
+        self.admin_login_button = QPushButton("Login as Admin")
+        self.admin_login_button.clicked.connect(self.admin_login)
+        layout.addWidget(self.admin_login_button)
+
         self.setLayout(layout)
 
     def start_camera(self):
+        """Opens the webcam."""
         self.capture = cv2.VideoCapture(0)
         self.timer.start(30)
 
     def update_frame(self):
+        """Updates the camera feed."""
         ret, frame = self.capture.read()
         if ret:
             rgb_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -45,17 +50,16 @@ class AttendanceApp(QWidget):
             pixmap = QPixmap.fromImage(convert_to_qt)
             self.camera_label.setPixmap(pixmap)
 
-    def capture_frame(self):
-        ret, frame = self.capture.read()
-        if ret:
-            name = recognize_face(frame)
-            if name and name != "Unknown":
-                QMessageBox.information(self, "Attendance Marked", f"Attendance recorded for {name}")
-            else:
-                QMessageBox.warning(self, "No Match", "Face not recognized. Please try again.")
+    def admin_login(self):
+        """Opens attendance log if the admin password is correct."""
+        if self.password_field.text() == "admin123":
+            self.attendance_window = AttendanceWindow()
+            self.attendance_window.show()
+        else:
+            QMessageBox.warning(self, "Access Denied", "Incorrect Password")
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
+    app = QApplication([])
     window = AttendanceApp()
     window.show()
-    sys.exit(app.exec_())
+    app.exec_()

@@ -1,41 +1,36 @@
-import sys
-import csv
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem
+from attendance import fetch_attendance_records
 
 class AttendanceWindow(QWidget):
+    """Admin Attendance Log Window."""
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Attendance Records")
-        self.setGeometry(150, 150, 600, 400)
+        self.setGeometry(200, 200, 500, 400)
         self.setup_ui()
-        self.load_attendance()
 
     def setup_ui(self):
+        """Sets up the attendance log UI."""
         layout = QVBoxLayout()
-        self.table = QTableWidget()
-        layout.addWidget(self.table)
-
-        self.refresh_button = QPushButton("Refresh")
-        self.refresh_button.clicked.connect(self.load_attendance)
-        layout.addWidget(self.refresh_button)
+        self.attendance_table = QTableWidget()
+        self.attendance_table.setColumnCount(3)
+        self.attendance_table.setHorizontalHeaderLabels(["Name", "First Seen", "Last Seen"])
+        layout.addWidget(self.attendance_table)
 
         self.setLayout(layout)
+        self.display_attendance_table()
 
-    def load_attendance(self):
-        with open("attendance.csv", "r") as file:
-            reader = csv.reader(file)
-            data = list(reader)
+    def display_attendance_table(self):
+        """Fetches and displays attendance records in the table."""
+        records = fetch_attendance_records()
+        self.attendance_table.setRowCount(len(records))
 
-        self.table.setRowCount(len(data))
-        self.table.setColumnCount(len(data[0]))
-        self.table.setHorizontalHeaderLabels(["Name", "Date", "Time"])
+        for row_idx, (name, first_seen, last_seen) in enumerate(records):
+            self.attendance_table.setItem(row_idx, 0, QTableWidgetItem(name))
+            self.attendance_table.setItem(row_idx, 1, QTableWidgetItem(first_seen))
+            self.attendance_table.setItem(row_idx, 2, QTableWidgetItem(last_seen))
 
-        for row_idx, row in enumerate(data):
-            for col_idx, cell in enumerate(row):
-                self.table.setItem(row_idx, col_idx, QTableWidgetItem(cell))
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = AttendanceWindow()
-    window.show()
-    sys.exit(app.exec_())
+        # ✅ Increase column width for full visibility
+        self.attendance_table.setColumnWidth(0, 150)
+        self.attendance_table.setColumnWidth(1, 200)
+        self.attendance_table.setColumnWidth(2, 200)
