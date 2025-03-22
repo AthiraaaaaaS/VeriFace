@@ -51,7 +51,7 @@ pip install -r requirements.txt
 ```
 VeriFace/
 ├── models/                     # Pre-trained face recognition models
-│   ├── arcface.onnx
+│   ├── arcface.onnx  #download link https://huggingface.co/FoivosPar/Arc2Face/blob/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
 │   ├── deploy.prototxt
 │   ├── res10_300x300_ssd.caffemodel
 ├── gui/                        # GUI components
