@@ -53,6 +53,3 @@ def initialize_database():
 
     conn.commit()
     conn.close()
-
-# ✅ Run this function once to recreate the table
-initialize_database()

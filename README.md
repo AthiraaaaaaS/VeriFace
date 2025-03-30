@@ -1,4 +1,4 @@
-# Attendance Monitoring System
+# VeriFace : An AI powered Attendance Monitoring System
 
 ## Overview
 The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 ```
 VeriFace/
 ├── models/                     # Pre-trained face recognition models
-│   ├── arcface.onnx  #download link https://huggingface.co/FoivosPar/Arc2Face/blob/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
+│   ├── arcface.onnx            #download link https://huggingface.co/FoivosPar/Arc2Face/blob/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
 │   ├── deploy.prototxt
 │   ├── res10_300x300_ssd.caffemodel
 ├── gui/                        # GUI components
