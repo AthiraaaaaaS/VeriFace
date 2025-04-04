@@ -7,3 +7,4 @@ opencv-contrib-python
 onnxruntime  
 pandas
 requests
+openpyxl
