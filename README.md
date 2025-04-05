@@ -1,13 +1,13 @@
 # VeriFace : An AI powered Attendance Monitoring System
 
 ## Overview
-The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
+The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, **InsightFace**, **ArcFace ONNX**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
 
 ---
 
 ## Features
 
-- **Real-Time Face Recognition:** Uses **OpenCV DNN** and **ArcFace ONNX** models for accurate face detection.
+- **Real-Time Face Recognition:** Uses **InsightFace** and **ArcFace ONNX** models for high-accuracy face detection and recognition.
 - **Live Camera Monitoring:** Continuous video feed to detect and recognize faces.
 - **Attendance Tracking:** Logs **first seen** and **last seen** timestamps for each user.
 - **Admin Panel:** Secure login for viewing attendance records.
@@ -20,10 +20,18 @@ The Attendance Monitoring System is a real-time face recognition application bui
 - **Python 3.x**
 - **PyQt5** – GUI framework
 - **OpenCV** – Computer vision and face detection
-- **Face Recognition** – Facial encoding and matching
+- **InsightFace** – High-accuracy face recognition
+- **ArcFace ONNX** – Face recognition model
 - **SQLite3** – Database for storing user information and attendance logs
 
 ---
+
+## Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/YourUsername/VeriFace.git
+cd VeriFace
 
 ## Installation
 
@@ -52,11 +60,10 @@ pip install -r requirements.txt
 VeriFace/
 ├── models/                     # Pre-trained face recognition models
 │   ├── arcface.onnx            #download link https://huggingface.co/FoivosPar/Arc2Face/blob/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
-│   ├── deploy.prototxt
-│   ├── res10_300x300_ssd.caffemodel
+│   ├── opencv_face_detector.pb
+|   ├── opencv_face_detector.pbtxt
 ├── gui/                        # GUI components
-│   ├── camera_module.py        # Camera UI and face recognition
-│   ├── attendance_window.py    # Admin panel for attendance logs
+│   ├── attendance_ui.py  
 ├── known_faces/                # Folder for storing user images
 ├── attendance.db               # SQLite database
 ├── attendance.py               # Handles attendance logging
@@ -103,6 +110,9 @@ This will:
 | `id`    | INTEGER | Unique user ID |
 | `name`  | TEXT   | User’s full name  |
 | `encoding` | BLOB | Face encoding for recognition |
+| `email`  | TEXT   | User’s email id  |
+| `phone` | TEXT | User’s phone number |
+
 
 ### Attendance Table (`attendance`)
 | Column  | Type    | Description        |
@@ -124,4 +134,6 @@ This will:
 ---
 
 ## License
-This project is licensed under the **MIT License**.
+This updated README reflects the use of **InsightFace** and **ArcFace** for face recognition, as well as the other recent changes. Let me know if you need further edits!
+
+
