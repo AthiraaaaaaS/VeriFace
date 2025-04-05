@@ -2,84 +2,72 @@ import cv2
 import numpy as np
 import sqlite3
 from utils import get_known_faces, save_attendance
+from numpy import dot
+from numpy.linalg import norm
+from insightface.app import FaceAnalysis
 
-prototxt_path = "models/deploy.prototxt"
-caffe_model_path = "models/res10_300x300_ssd_iter_140000.caffemodel"
-face_net = cv2.dnn.readNetFromCaffe(prototxt_path, caffe_model_path)
+# Load InsightFace model
+app = FaceAnalysis(name='buffalo_l', providers=['CPUExecutionProvider'])
+app.prepare(ctx_id=0)
 
-# ✅ Load ArcFace Model for Face Recognition
-arcface_net = cv2.dnn.readNet("models/arcface.onnx")  #Ensure ArcFace model is loaded
 
-def detect_faces_dnn(frame):
-    """Detect faces using OpenCV's DNN face detector."""
+face_net = cv2.dnn.readNetFromTensorflow("models/opencv_face_detector.pb", "models/opencv_face_detector.pbtxt")
+
+arcface_net = cv2.dnn.readNetFromONNX("models/arcface.onnx")
+
+def detect_faces_dnn(frame, conf_threshold=0.7):
     h, w = frame.shape[:2]
-    blob = cv2.dnn.blobFromImage(frame, scalefactor=1.0, size=(300, 300), mean=(104.0, 177.0, 123.0))
+    blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), [104, 117, 123], swapRB=False, crop=False)
     face_net.setInput(blob)
     detections = face_net.forward()
-
-    face_locations = []
+    boxes = []
     for i in range(detections.shape[2]):
-        confidence = float(detections[0, 0, i, 2])  #Ensure confidence is a float
+        confidence = detections[0, 0, i, 2]
+        if confidence > conf_threshold:
+            box = detections[0, 0, i, 3:7] * [w, h, w, h]
+            x1, y1, x2, y2 = box.astype(int)
+            boxes.append((y1, x2, y2, x1))  # top, right, bottom, left (to match dlib style)
+    return boxes
 
-        if confidence > 0.6:  # Only keep faces with high confidence
-            box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-            (startX, startY, endX, endY) = box.astype("int")
-            face_locations.append((startY, endX, endY, startX))
+def extract_faces_and_embeddings(frame):
+    """
+    Detects faces and returns their embeddings with bounding boxes.
+    """
+    results = app.get(frame)
+    detections = []
+    for face in results:
+        embedding = face.embedding
+        box = face.bbox.astype(int)
+        x1, y1, x2, y2 = box
+        detections.append((embedding, (x1, y1, x2, y2)))
+    return detections
 
-    return face_locations
-
-def recognize_face(frame):
-    """Recognizes a face using stored face encodings."""
-    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    face_locations = detect_faces_dnn(frame)
-
+def recognize_embedding(embedding):
     known_names, known_encodings, user_ids = get_known_faces()
+    conn = sqlite3.connect("attendance.db")
+    cursor = conn.cursor()
 
-    for (y, endX, endY, x) in face_locations:
-        face_crop = rgb_frame[y:endY, x:endX]
+    best_match_index = -1
+    best_similarity = -1
 
-        if face_crop.size == 0:
-            continue  
+    for idx, known_encoding in enumerate(known_encodings):
+        known_encoding = known_encoding / np.linalg.norm(known_encoding)
+        similarity = cosine_similarity(known_encoding, embedding)
+        print(f"🔹 Comparing with {known_names[idx]}: Similarity = {similarity}")
 
-        # Extract face encoding
-        blob = cv2.dnn.blobFromImage(face_crop, 1.0 / 255, (112, 112), (0, 0, 0), swapRB=True, crop=False)
-        arcface_net.setInput(blob)
-        
-        try:
-            face_encoding = arcface_net.forward().flatten()
-            if face_encoding.shape[0] == 0:
-                print(f"❌ Face encoding extraction failed.")
-                continue
-        except cv2.error as e:
-            print(f"❌ Error extracting face encoding: {e}")
-            continue
+        if similarity > best_similarity:
+            best_similarity = similarity
+            best_match_index = idx
 
-        # ✅ Normalize extracted encoding
-        face_encoding = face_encoding / np.linalg.norm(face_encoding)
+    if best_similarity > 0.6:
+        save_attendance(user_ids[best_match_index])
+        print(f"Attendance marked for {known_names[best_match_index]} with similarity {best_similarity}")
+        conn.close()
+        return known_names[best_match_index]
+    else:
+        conn.close()
+        return "Unknown"
 
-        best_match_index = -1
-        best_similarity = -1
 
-        for idx, known_encoding in enumerate(known_encodings):
-            known_encoding = known_encoding / np.linalg.norm(known_encoding)  # ✅ Normalize stored encoding
-
-            similarity = cosine_similarity(known_encoding, face_encoding)
-            print(f"🔹 Comparing with {known_names[idx]}: Similarity = {similarity}")  # Debugging
-
-            # ✅ Mark attendance for any similarity
-            if similarity > 0:  # Instead of setting a high threshold, we allow any similarity
-                best_match_index = idx
-                best_similarity = similarity
-
-        if best_match_index != -1:
-            save_attendance(user_ids[best_match_index])
-            print(f"✅ Attendance marked for {known_names[best_match_index]} with similarity {best_similarity}")
-            return known_names[best_match_index]
-
-    return "Unknown"
-
-def cosine_similarity(v1, v2):
-    """Computes cosine similarity between two face embeddings."""
-    v1 = v1 / np.linalg.norm(v1)  # ✅ Normalize embedding
-    v2 = v2 / np.linalg.norm(v2)  # ✅ Normalize embedding
-    return np.dot(v1, v2)
+def cosine_similarity(a, b):
+    return dot(a, b) / (norm(a) * norm(b))

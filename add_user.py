@@ -2,43 +2,29 @@ import cv2
 import numpy as np
 import sqlite3
 import sys
+from insightface.app import FaceAnalysis
 
-# Load ArcFace Model
-arcface_net = cv2.dnn.readNet("models/arcface.onnx")
+app = FaceAnalysis(name='buffalo_l', providers=['CPUExecutionProvider'])
+app.prepare(ctx_id=0)
 
 def extract_face_encoding(image_path):
-    """Extracts a 512D face embedding using ArcFace model."""
-    image = cv2.imread(image_path)
-    if image is None:
-        print(f"❌ Error: Unable to load image at {image_path}")
+    """Extracts embedding from image using InsightFace."""
+    img = cv2.imread(image_path)
+    if img is None:
+        print(f"Failed to load image: {image_path}")
         return None
 
-    print(f"✅ Image loaded: {image_path}, Shape: {image.shape}")
-
-    # Resize image for ArcFace (Expected input size: 112x112)
-    image = cv2.resize(image, (112, 112))
-    
-    blob = cv2.dnn.blobFromImage(image, 1.0 / 255, (112, 112), (0, 0, 0), swapRB=True, crop=False)
-    arcface_net.setInput(blob)
-
-    try:
-        encoding = arcface_net.forward().flatten()
-        if encoding.shape[0] != 512:
-            print(f"❌ Face encoding shape mismatch: {encoding.shape}")
-            return None
-    except cv2.error as e:
-        print(f"❌ OpenCV error during face encoding extraction: {e}")
+    faces = app.get(img)
+    if not faces:
+        print(f"No face detected in image: {image_path}")
         return None
 
-    print(f"✅ Face encoding extracted successfully with shape {encoding.shape}")
-    return encoding
+    return faces[0].embedding  # First face
 
 def add_user(name, image_path, phone, email):
-    """Adds a new user with name, phone number, and email ID."""
     conn = sqlite3.connect("attendance.db")
     cursor = conn.cursor()
 
-    # Ensure table exists
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -49,22 +35,21 @@ def add_user(name, image_path, phone, email):
         )
     """)
 
-    # Delete existing user with the same name
     cursor.execute("DELETE FROM users WHERE name = ?", (name,))
     conn.commit()
 
     face_encoding = extract_face_encoding(image_path)
     if face_encoding is None:
-        print(f"Failed to add user {name} due to encoding issues.")
+        print(f"❌ Failed to add user {name}.")
         return
 
-    face_encoding_blob = face_encoding.tobytes()
+    face_encoding_blob = face_encoding.astype(np.float32).tobytes()
     cursor.execute("INSERT INTO users (name, encoding, phone, email) VALUES (?, ?, ?, ?)", 
                    (name, face_encoding_blob, phone, email))
     conn.commit()
     conn.close()
-    
-    print(f"✅ User {name} added successfully with phone {phone} and email {email}!")
+
+    print(f"User {name} added successfully with phone {phone} and email {email}!")
 
 if __name__ == "__main__":
     if len(sys.argv) < 5:
