@@ -10,18 +10,32 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from face_recognition import FaceRecognizer
+from insightface.app import FaceAnalysis
 
 def run_live_camera():
     """Runs a continuous live CCTV camera feed while marking attendance."""
+    # Initialize InsightFace app with modified parameters
+    app = FaceAnalysis(name='buffalo_l', 
+                      providers=['CPUExecutionProvider'],
+                      allowed_modules=['detection', 'recognition'])
+    # Prepare with modified detection parameters
+    app.prepare(ctx_id=0, det_size=(640, 640))
+    
     # Initialize face recognizer
     recognizer = FaceRecognizer()
+    print("\nInitializing face recognition system...")
+    print("Available users:", recognizer.user_names)
+    if recognizer.classifier is not None:
+        print("Model classes:", recognizer.classifier.classes_)
+    else:
+        print("No classifier loaded!")
     
     # Initialize camera
     video_capture = cv2.VideoCapture(0)
     
     # Set camera properties for better performance
-    video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-    video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     video_capture.set(cv2.CAP_PROP_FPS, 30)
     
     if not video_capture.isOpened():
@@ -30,77 +44,98 @@ def run_live_camera():
     
     # Dictionary to track recognized users and their last attendance time
     recognized_users = {}
-    attendance_cooldown = 60  # seconds between attendance records for the same user
+    attendance_cooldown = 60  # seconds between attendance records
     
     print("Camera started. Press 'q' to quit.")
     
-    # FPS calculation variables
-    frame_count = 0
-    start_time = time.time()
-    fps = 0
-    
-    while True:
-        ret, frame = video_capture.read()
-        if not ret or frame is None or frame.size == 0:
-            print("Failed to grab valid frame.")
-            continue
-        
-        # Calculate FPS
-        frame_count += 1
-        elapsed_time = time.time() - start_time
-        if elapsed_time >= 1.0:
-            fps = frame_count / elapsed_time
-            frame_count = 0
-            start_time = time.time()
-        
-        # Recognize faces in the frame
-        user_id, user_name, confidence = recognizer.recognize_face_from_frame(frame)
-        
-        # Draw FPS on frame
-        cv2.putText(frame, f"FPS: {fps:.1f}", (10, 30), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-        
-        if user_id is not None:
-            # Draw bounding box and name
-            height, width = frame.shape[:2]
-            box_size = min(width, height) // 4
-            x1 = (width - box_size) // 2
-            y1 = (height - box_size) // 2
-            x2 = x1 + box_size
-            y2 = y1 + box_size
+    try:
+        while True:
+            ret, frame = video_capture.read()
+            if not ret or frame is None:
+                continue
             
-            # Draw bounding box
-            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            
-            # Draw name and confidence
-            text = f"{user_name} ({confidence:.2f})"
-            cv2.putText(frame, text, (x1, y1 - 10), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-            
-            # Record attendance if cooldown period has passed
-            current_time = time.time()
-            if (user_id not in recognized_users or 
-                current_time - recognized_users[user_id] > attendance_cooldown):
+            try:
+                # Get all faces in the frame
+                faces = app.get(frame)
                 
-                if recognizer.record_attendance(user_id):
-                    print(f"Attendance recorded for {user_name}")
-                    recognized_users[user_id] = current_time
-        else:
-            # Draw "No face detected" message
-            cv2.putText(frame, "No face detected", (10, 60), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-        
-        # Display the frame
-        cv2.imshow("VeriFace - Live Recognition", frame)
-        
-        # Break loop on 'q' key press
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    
-    # Clean up
-    video_capture.release()
-    cv2.destroyAllWindows()
-    print("Camera stopped.")
+                if faces:
+                    print(f"\nDetected {len(faces)} faces in frame")
+                    for face in faces:
+                        try:
+                            # Get face embedding
+                            face_encoding = face.embedding.reshape(1, -1)
+                            
+                            if recognizer.classifier is not None:
+                                # Get predictions and probabilities
+                                user_id = recognizer.classifier.predict(face_encoding)[0]
+                                probs = recognizer.classifier.predict_proba(face_encoding)[0]
+                                confidence = max(probs)
+                                user_name = recognizer.user_names.get(user_id, "Unknown")
+                                
+                                # Print top 3 predictions for debugging
+                                top_3_idx = np.argsort(probs)[-3:][::-1]
+                                print("\nTop 3 predictions:")
+                                for idx in top_3_idx:
+                                    pred_id = recognizer.classifier.classes_[idx]
+                                    pred_name = recognizer.user_names.get(pred_id, "Unknown")
+                                    pred_conf = probs[idx]
+                                    print(f"{pred_name} (ID: {pred_id}): {pred_conf:.2f}")
+                                
+                                if confidence >= recognizer.confidence_threshold:
+                                    # Get face box coordinates
+                                    bbox = face.bbox.astype(int)
+                                    x1, y1, x2, y2 = bbox
+                                    
+                                    # Draw bounding box
+                                    cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                                    
+                                    # Draw name and confidence
+                                    text = f"{user_name} ({confidence:.2f})"
+                                    cv2.putText(frame, text, (x1, y1 - 10), 
+                                              cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+                                    
+                                    # Record attendance if cooldown period has passed
+                                    current_time = time.time()
+                                    if (user_id not in recognized_users or 
+                                        current_time - recognized_users[user_id] > attendance_cooldown):
+                                        
+                                        print(f"\nAttempting to record attendance for {user_name} (ID: {user_id})")
+                                        success = recognizer.record_attendance(user_id)
+                                        if success:
+                                            print(f"✅ Successfully recorded attendance for {user_name}")
+                                            recognized_users[user_id] = current_time
+                                            # Draw success message
+                                            cv2.putText(frame, "Attendance Recorded!", 
+                                                      (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 
+                                                      1, (0, 255, 0), 2)
+                                        else:
+                                            print(f"❌ Failed to record attendance for {user_name}")
+                                            # Draw failure message
+                                            cv2.putText(frame, "Failed to Record!", 
+                                                      (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 
+                                                      1, (0, 0, 255), 2)
+                            else:
+                                print("No classifier loaded in recognizer")
+                        except Exception as e:
+                            print(f"Error processing face: {str(e)}")
+                            continue
+                
+                # Display the frame
+                cv2.imshow("VeriFace - Live Recognition", frame)
+                
+            except Exception as e:
+                print(f"Error processing frame: {str(e)}")
+                continue
+            
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+            
+    except Exception as e:
+        print(f"Camera error: {str(e)}")
+    finally:
+        video_capture.release()
+        cv2.destroyAllWindows()
+        print("Camera stopped.")
 
 if __name__ == "__main__":
     run_live_camera()

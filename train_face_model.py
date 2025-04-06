@@ -40,7 +40,7 @@ def load_face_encodings_from_db():
         cursor = conn.cursor()
         
         # Get all users with their encodings
-        cursor.execute("SELECT id, name, encoding FROM users")
+        cursor.execute("SELECT user_id, name, encoding FROM users")
         users = cursor.fetchall()
         
         if not users:
@@ -109,7 +109,7 @@ def train_face_classifier(encodings, labels, classifier_type='svm'):
         # Check if we have enough unique classes
         unique_labels = np.unique(labels)
         if len(unique_labels) < 2:
-            logger.error(f"Not enough unique classes for training. Found only {len(unique_labels)} class(es). Need at least 2 users to train the model.")
+            logger.error(f"Not enough unique classes for training. Found only {len(unique_labels)} class(es).")
             return None
             
         # Split data for training and testing

@@ -1,0 +1,73 @@
+2025-04-06 19:10:44,720 - __main__ - INFO - Deleting existing model files...
+2025-04-06 19:10:44,722 - __main__ - INFO - 
+Current users in database:
+2025-04-06 19:10:44,722 - __main__ - INFO - ID: 1, Name: Athira S, Email: athirasuma1998@gmail.com
+2025-04-06 19:10:44,722 - __main__ - INFO - ID: 2, Name: Aiswarya S, Email: aiswaryabts143@gmail.com
+2025-04-06 19:10:44,722 - __main__ - INFO - ID: 3, Name: Suma G N, Email: sumagn1974@gmail.com
+2025-04-06 19:10:44,722 - __main__ - INFO - 
+Training new model...
+2025-04-06 19:10:44,723 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:10:44,724 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:10:44,733 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:10:44,734 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_191044.pkl
+2025-04-06 19:14:01,865 - __main__ - INFO - Deleting existing model files...
+2025-04-06 19:14:01,866 - __main__ - INFO - Deleted: models/face_recognition_svm_20250406_191044.pkl
+2025-04-06 19:14:01,867 - __main__ - INFO - 
+Current users in database:
+2025-04-06 19:14:01,867 - __main__ - INFO - ID: 1, Name: Athira S, Email: athirasuma1998@gmail.com
+2025-04-06 19:14:01,867 - __main__ - INFO - ID: 2, Name: Aiswarya S, Email: aiswaryabts143@gmail.com
+2025-04-06 19:14:01,867 - __main__ - INFO - ID: 3, Name: Suma G N, Email: sumagn1974@gmail.com
+2025-04-06 19:14:01,867 - __main__ - INFO - 
+Training new model...
+2025-04-06 19:14:01,868 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:14:01,868 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:14:01,875 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:14:01,876 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_191401.pkl
+2025-04-06 19:24:58,653 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:24:58,654 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:24:58,662 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:24:58,663 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_192458.pkl
+2025-04-06 19:28:09,404 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:28:09,404 - FaceTraining - INFO - Training SVM classifier with 3 samples...
+2025-04-06 19:28:09,412 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:28:09,413 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_192809.pkl
+2025-04-06 19:40:12,410 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:40:12,410 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:40:12,418 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:40:12,419 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_194012.pkl
+2025-04-06 19:41:30,239 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:41:30,239 - FaceTraining - INFO - Training SVM classifier with 3 samples...
+2025-04-06 19:41:30,247 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:41:30,248 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_194130.pkl
+2025-04-06 20:42:05,402 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 20:42:05,402 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 20:42:05,403 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 20:42:05,405 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 130, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+
+2025-04-06 20:42:26,693 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 20:42:26,694 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 20:42:26,694 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 20:42:26,696 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 130, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+

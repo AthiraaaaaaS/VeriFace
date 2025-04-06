@@ -8,7 +8,7 @@ def fetch_attendance_records():
     cursor.execute("""
         SELECT users.name, attendance.first_seen, attendance.last_seen
         FROM attendance
-        INNER JOIN users ON attendance.user_id = users.id
+        INNER JOIN users ON attendance.user_id = users.user_id
     """)
     records = cursor.fetchall()
     conn.close()
@@ -33,21 +33,28 @@ def save_attendance(user_id):
     conn.close()
 
 def initialize_database():
-    """Ensures the `attendance` table has the correct structure."""
+    """Ensures all required tables have the correct structure."""
     conn = sqlite3.connect("attendance.db")
     cursor = conn.cursor()
 
-    # ✅ Drop old table if it has the wrong structure
-    cursor.execute("DROP TABLE IF EXISTS attendance")
+    # Create users table if it doesn't exist
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            user_id TEXT PRIMARY KEY,
+            name TEXT,
+            encoding BLOB,
+            phone TEXT,
+            email TEXT
+        )
+    """)
 
-    # ✅ Create new table with `first_seen` & `last_seen`
+    # Create attendance table with proper structure
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS attendance (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
+            user_id TEXT,
             first_seen TEXT,
             last_seen TEXT,
-            FOREIGN KEY(user_id) REFERENCES users(id)
+            FOREIGN KEY(user_id) REFERENCES users(user_id)
         )
     """)
 

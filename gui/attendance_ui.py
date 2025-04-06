@@ -441,7 +441,7 @@ class AttendanceScreen(QWidget):
         query = """
         SELECT users.name, attendance.first_seen, attendance.last_seen 
         FROM attendance
-        INNER JOIN users ON attendance.user_id = users.id
+        INNER JOIN users ON attendance.user_id = users.user_id
         WHERE DATE(attendance.first_seen) = ?
         """
         cursor.execute(query, (selected_date,))
@@ -735,7 +735,7 @@ class RegisterScreen(QWidget):
             # Create users table if it doesn't exist
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS users (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id TEXT PRIMARY KEY,
                     name TEXT,
                     encoding BLOB,
                     phone TEXT,
@@ -744,7 +744,7 @@ class RegisterScreen(QWidget):
             """)
             
             # Check if user already exists
-            cursor.execute("SELECT id FROM users WHERE name = ?", (name,))
+            cursor.execute("SELECT user_id FROM users WHERE name = ?", (name,))
             existing_user = cursor.fetchone()
             
             if existing_user:
@@ -967,7 +967,7 @@ class UsersScreen(QWidget):
             cursor = conn.cursor()
             
             # Get all users
-            cursor.execute("SELECT id, name, email, phone FROM users")
+            cursor.execute("SELECT user_id, name, email, phone FROM users")
             users = cursor.fetchall()
             
             conn.close()

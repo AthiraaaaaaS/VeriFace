@@ -52,6 +52,13 @@ class FaceRecognizer:
             self._load_model(model_path)
         else:
             logger.warning("No model found. Please train a model first.")
+            
+        # Load user information
+        self._load_user_info()
+        logger.info(f"Initialized with users: {self.user_names}")
+        
+        # Verify model and database consistency
+        self._verify_model_database_consistency()
     
     def _find_latest_model(self):
         """Find the latest trained model in the models directory."""
@@ -115,7 +122,7 @@ class FaceRecognizer:
                 conn.close()
                 return False
                 
-            cursor.execute("SELECT id, name FROM users")
+            cursor.execute("SELECT user_id, name FROM users")
             users = cursor.fetchall()
             
             if not users:
@@ -316,57 +323,113 @@ class FaceRecognizer:
             logger.error(f"Error recognizing face from frame: {str(e)}")
             return None, None, 0
     
-    def record_attendance(self, user_id):
-        """
-        Record attendance for a user.
-        
-        Args:
-            user_id: ID of the user.
+    def _verify_model_database_consistency(self):
+        """Verify that the model's user IDs match the database."""
+        if self.classifier is None:
+            return
             
-        Returns:
-            True if attendance was recorded, False otherwise.
-        """
+        try:
+            # Get unique labels that the model knows about
+            if hasattr(self.classifier, 'classes_'):
+                model_user_ids = set(self.classifier.classes_)
+            else:
+                logger.warning("Classifier doesn't have classes_ attribute")
+                return
+                
+            # Get user IDs from database
+            db_user_ids = set(self.user_ids)
+            
+            # Check for mismatches
+            missing_in_db = model_user_ids - db_user_ids
+            if missing_in_db:
+                logger.warning(f"Model contains user IDs not in database: {missing_in_db}")
+                logger.warning("Retraining model to ensure consistency...")
+                self._retrain_model()
+                
+        except Exception as e:
+            logger.error(f"Error verifying model-database consistency: {e}")
+    
+    def _retrain_model(self):
+        """Retrain the model using current database data."""
+        try:
+            from train_face_model import train_and_save_face_model
+            result = train_and_save_face_model(classifier_type='svm')
+            if result['success']:
+                logger.info("Model retrained successfully")
+                # Reload the model
+                model_path = self._find_latest_model()
+                if model_path and os.path.exists(model_path):
+                    self._load_model(model_path)
+            else:
+                logger.error(f"Model retraining failed: {result['message']}")
+        except Exception as e:
+            logger.error(f"Error retraining model: {e}")
+
+    def record_attendance(self, user_id):
+        """Record attendance for a user."""
         if user_id is None:
             logger.error("Cannot record attendance for None user_id")
             return False
-            
+        
         try:
             conn = sqlite3.connect("attendance.db")
             cursor = conn.cursor()
             
-            # Check if attendance already recorded for today
+            # First verify if the user exists in users table
+            cursor.execute("SELECT user_id, name FROM users WHERE user_id = ?", (user_id,))
+            user = cursor.fetchone()
+            
+            if not user:
+                logger.error(f"User ID {user_id} not found in users table")
+                return False
+            
+            logger.info(f"Recording attendance for user: {user[1]} (ID: {user[0]})")
+            
+            # Get current time
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             today = datetime.now().strftime("%Y-%m-%d")
-            cursor.execute("""
-                SELECT id FROM attendance 
-                WHERE user_id = ? AND DATE(first_seen) = ?
-            """, (user_id, today))
             
-            existing = cursor.fetchone()
-            
-            if existing:
-                # Update last_seen
+            try:
+                # Check if attendance already recorded today
                 cursor.execute("""
-                    UPDATE attendance 
-                    SET last_seen = ? 
-                    WHERE id = ?
-                """, (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), existing[0]))
-                logger.info(f"Updated attendance for user {user_id}")
-            else:
-                # Insert new attendance record
-                now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                cursor.execute("""
-                    INSERT INTO attendance (user_id, first_seen, last_seen)
-                    VALUES (?, ?, ?)
-                """, (user_id, now, now))
-                logger.info(f"Recorded new attendance for user {user_id}")
-            
-            conn.commit()
-            conn.close()
-            return True
+                    SELECT user_id, first_seen, last_seen 
+                    FROM attendance 
+                    WHERE user_id = ? AND DATE(first_seen) = ?
+                """, (user_id, today))
+                
+                existing = cursor.fetchone()
+                
+                if existing:
+                    # Update last_seen
+                    cursor.execute("""
+                        UPDATE attendance 
+                        SET last_seen = ? 
+                        WHERE user_id = ?
+                    """, (current_time, user_id))
+                    logger.info(f"Updated last_seen for user {user[1]} (ID: {user[0]})")
+                else:
+                    # Insert new attendance record
+                    cursor.execute("""
+                        INSERT INTO attendance (user_id, first_seen, last_seen)
+                        VALUES (?, ?, ?)
+                    """, (user_id, current_time, current_time))
+                    logger.info(f"Created new attendance record for user {user[1]} (ID: {user[0]})")
+                
+                conn.commit()
+                return True
+                
+            except sqlite3.Error as e:
+                logger.error(f"Database error while recording attendance: {e}")
+                return False
             
         except Exception as e:
-            logger.error(f"Error recording attendance: {str(e)}")
+            logger.error(f"Error recording attendance: {e}")
             return False
+        finally:
+            try:
+                conn.close()
+            except:
+                pass
 
 # Example usage
 if __name__ == "__main__":

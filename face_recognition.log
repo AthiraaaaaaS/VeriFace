@@ -26,3 +26,811 @@
     raise ValueError(
 ValueError: The number of classes has to be greater than one; got 1 class
 
+2025-04-06 18:21:23,736 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:21:23,736 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:21:23,738 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 18:21:31,742 - FaceRecognition - INFO - Recorded new attendance for user 11
+2025-04-06 18:22:32,266 - FaceRecognition - INFO - Updated attendance for user 11
+2025-04-06 18:23:34,111 - FaceRecognition - INFO - Updated attendance for user 11
+2025-04-06 18:24:56,293 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:24:56,294 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:24:56,294 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 18:24:56,555 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Athira S.jpg
+2025-04-06 18:25:32,040 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 18:25:32,040 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 18:25:32,041 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 18:25:32,044 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 130, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+
+2025-04-06 18:35:02,099 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:35:02,100 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:35:02,101 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 18:35:09,732 - FaceRecognition - INFO - Updated attendance for user 11
+2025-04-06 18:35:35,494 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:35:35,494 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 18:35:35,496 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 18:35:35,736 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\athiras.jpg
+2025-04-06 18:35:37,838 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 18:35:37,838 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 18:35:37,842 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 18:35:37,843 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:36:06,988 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:36:06,998 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:36:06,999 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:36:14,653 - FaceRecognition - INFO - Recorded new attendance for user 12
+2025-04-06 18:37:14,801 - FaceRecognition - INFO - Updated attendance for user 12
+2025-04-06 18:41:50,738 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:41:50,739 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:41:50,740 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:41:58,364 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:58,675 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:58,942 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:59,183 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:59,429 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:59,619 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:41:59,889 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:00,119 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:00,364 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:00,592 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:00,813 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:01,086 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:01,541 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:01,780 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:02,008 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:02,251 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:02,518 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:02,757 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:03,019 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:03,279 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:03,498 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:03,737 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:03,979 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:04,216 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:04,468 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:04,692 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:04,956 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:05,184 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:05,470 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:05,724 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:05,948 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:06,189 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:06,397 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:06,655 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:06,892 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:07,111 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:07,348 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:07,596 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:07,817 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:08,044 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:08,288 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:08,576 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:08,805 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:09,000 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:09,279 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:09,522 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:09,751 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:09,951 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:10,227 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:10,458 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:10,696 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:10,930 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:11,163 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:11,388 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:11,664 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:11,861 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:12,093 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:12,357 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:12,597 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:12,831 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:13,031 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:13,297 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:13,541 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:13,779 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:14,016 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:14,262 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:14,492 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:14,694 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:14,963 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:15,181 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:15,434 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:15,672 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:15,899 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:16,134 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:16,383 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:16,591 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:16,816 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:17,055 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:17,258 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:17,508 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:17,766 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:17,998 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:18,231 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:18,465 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:18,722 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:18,929 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:19,155 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:19,403 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:19,650 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:19,889 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:20,125 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:20,371 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:20,610 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:20,814 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:21,081 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:21,323 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:21,544 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:21,765 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:22,012 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:22,280 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:22,515 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:22,725 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:22,963 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:23,214 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:23,462 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:23,715 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:23,929 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:24,165 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:24,381 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:24,635 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:24,828 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:25,072 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:25,335 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:25,703 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:26,059 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:26,379 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:26,731 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:27,222 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:27,443 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:27,642 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:27,924 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:28,135 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:28,409 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:28,608 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:28,885 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:29,107 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:29,343 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:29,544 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:29,822 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:30,038 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:30,278 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:30,498 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:30,728 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:30,957 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:31,160 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:31,403 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:31,635 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:31,899 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:32,167 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:32,419 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:32,657 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:32,876 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:33,095 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:33,349 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:33,603 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:33,841 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:34,035 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:34,281 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:34,531 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:34,773 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:35,009 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:35,269 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:35,472 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:35,792 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:36,134 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:36,474 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:36,738 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:36,989 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:37,236 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:37,481 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:37,742 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:37,988 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:38,226 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:38,478 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:38,683 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:38,953 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:39,192 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:39,431 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:39,636 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:39,908 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:40,109 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:40,338 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:40,576 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:40,828 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:41,032 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:42:41,279 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:45:53,099 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:45:53,100 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_183537.pkl
+2025-04-06 18:45:53,101 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:45:53,101 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:45:53,102 - FaceRecognition - INFO - Initialized with users: {3: 'Athira S', 4: 'Aiswarya S', 12: 'athiras'}
+2025-04-06 18:46:00,425 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:00,741 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:00,939 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:01,131 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:01,329 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:01,534 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:01,732 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:01,940 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,114 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,258 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,426 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,599 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,774 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:02,978 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:03,530 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:03,721 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:03,884 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,038 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,212 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,371 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,548 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,692 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:04,841 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,128 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,304 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,482 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,643 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,799 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:05,968 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,136 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,306 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,473 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,641 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,812 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:06,986 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:07,143 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:07,320 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:07,493 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:07,687 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:07,876 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:08,108 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:08,317 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,149 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,300 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,465 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,609 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,787 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:09,932 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:10,078 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:10,227 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:10,837 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:10,984 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,132 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,311 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,474 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,632 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,781 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:11,960 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,119 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,281 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,446 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,602 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,766 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:12,929 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:13,123 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:13,282 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:46:13,446 - FaceRecognition - ERROR - User ID 12 not found in database
+2025-04-06 18:55:52,618 - FaceRecognition - WARNING - No model files found.
+2025-04-06 18:55:52,618 - FaceRecognition - WARNING - No model found. Please train a model first.
+2025-04-06 18:55:52,619 - FaceRecognition - WARNING - No users found in the database.
+2025-04-06 18:55:52,620 - FaceRecognition - INFO - Initialized with users: {}
+2025-04-06 18:56:39,094 - FaceRecognition - WARNING - No model files found.
+2025-04-06 18:56:39,094 - FaceRecognition - WARNING - No model found. Please train a model first.
+2025-04-06 18:56:39,095 - FaceRecognition - WARNING - No users found in the database.
+2025-04-06 18:56:39,095 - FaceRecognition - INFO - Initialized with users: {}
+2025-04-06 18:56:39,358 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Athira S.jpg
+2025-04-06 18:57:52,702 - FaceRecognition - WARNING - No model files found.
+2025-04-06 18:57:52,702 - FaceRecognition - WARNING - No model found. Please train a model first.
+2025-04-06 18:57:52,703 - FaceRecognition - INFO - Loaded information for 1 users
+2025-04-06 18:57:52,703 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S'}
+2025-04-06 18:57:52,956 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Aiswarya S.jpg
+2025-04-06 18:57:54,909 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 18:57:54,909 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 18:57:54,910 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 18:57:54,914 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 141, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+
+2025-04-06 18:58:48,214 - FaceRecognition - WARNING - No model files found.
+2025-04-06 18:58:48,214 - FaceRecognition - WARNING - No model found. Please train a model first.
+2025-04-06 18:58:48,215 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 18:58:48,215 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S'}
+2025-04-06 18:58:48,472 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Suma G N.jpg
+2025-04-06 18:58:50,382 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 18:58:50,383 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 18:58:50,385 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 18:58:50,387 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 18:59:09,775 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 18:59:09,787 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 18:59:09,788 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:59:09,789 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 18:59:09,789 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:00:28,625 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 19:00:28,625 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 19:00:28,626 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:00:28,627 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:00:28,627 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:00:43,624 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:00:43,625 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 19:00:43,627 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 19:00:43,630 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 141, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+
+2025-04-06 19:01:23,559 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 19:01:23,559 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_185850.pkl
+2025-04-06 19:01:23,560 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:01:23,561 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:01:23,561 - FaceRecognition - INFO - Initialized with users: {2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:01:23,847 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Athira S.jpg
+2025-04-06 19:01:25,401 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:01:25,401 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:01:25,403 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:01:25,405 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:01:50,151 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:01:50,176 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:01:50,178 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:01:50,179 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:01:50,179 - FaceRecognition - INFO - Initialized with users: {2: 'Aiswarya S', 3: 'Suma G N', 4: 'Athira S'}
+2025-04-06 19:01:57,374 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:57,659 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:57,821 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:57,970 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,132 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,308 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,453 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,597 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,732 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:58,936 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:59,388 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:01:59,850 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,000 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,179 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,370 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,524 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,673 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,820 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:00,977 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,129 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,303 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,464 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,613 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,790 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:01,936 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,087 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,240 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,393 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,549 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,701 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,853 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:02,999 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:03,155 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:03,309 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:03,453 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:03,635 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:03,788 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,025 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,172 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,311 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,455 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,604 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,771 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:04,975 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,124 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,273 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,481 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,625 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,814 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:05,965 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,123 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,264 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,402 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,552 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,748 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:06,900 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,066 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,240 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,397 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,578 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,735 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:07,925 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,074 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,276 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,464 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,613 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,791 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:08,941 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,086 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,254 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,467 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,616 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,764 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:09,917 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,101 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,241 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,390 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,571 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,737 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:10,890 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,040 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,199 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,360 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,507 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,683 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:11,837 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,036 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,208 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,358 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,530 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,725 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:12,878 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,031 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,212 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,375 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,522 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,674 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:13,855 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,019 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,208 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,405 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,556 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,716 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:14,876 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,022 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,186 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,336 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,485 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,633 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,794 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:15,954 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,101 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,255 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,437 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,617 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,780 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:16,975 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,123 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,287 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,477 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,648 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,813 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:17,964 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,111 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,261 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,422 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,575 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,719 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:18,882 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,044 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,200 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,417 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,568 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,737 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:19,911 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,077 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,236 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,451 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,605 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,779 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:20,944 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,105 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,307 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,451 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,612 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,761 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:21,917 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,106 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,267 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,422 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,566 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,714 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:22,870 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:23,036 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:23,195 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:23,349 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:23,506 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:02:23,682 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:08,557 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:05:08,559 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:05:08,560 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:05:08,561 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:05:08,561 - FaceRecognition - INFO - Initialized with users: {2: 'Aiswarya S', 3: 'Suma G N', 4: 'Athira S'}
+2025-04-06 19:05:16,001 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:16,282 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:16,441 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:16,612 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:16,770 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:16,936 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,079 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,232 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,374 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,528 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,693 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:17,847 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,016 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,177 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,398 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,608 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,796 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:18,978 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:19,154 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:19,305 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:19,477 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:19,664 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:19,840 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,000 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,173 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,353 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,549 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,722 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:20,882 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,031 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,203 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,360 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,529 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,688 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:21,856 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,029 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,183 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,342 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,513 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,686 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:22,841 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,026 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,209 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,388 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,596 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,766 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:23,938 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:24,103 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:24,250 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:24,483 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:24,665 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:24,839 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,031 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,216 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,392 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,570 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,727 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:05:25,918 - FaceRecognition - ERROR - User ID 4 not found in database
+2025-04-06 19:07:16,292 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:07:16,293 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_190125.pkl
+2025-04-06 19:07:16,294 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:07:16,295 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:07:16,295 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:07:16,296 - FaceRecognition - WARNING - Model contains user IDs not in database: {4}
+2025-04-06 19:07:16,296 - FaceRecognition - WARNING - Retraining model to ensure consistency...
+2025-04-06 19:07:16,297 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:07:16,297 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 19:07:16,301 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:07:16,304 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_190716.pkl
+2025-04-06 19:07:16,304 - FaceRecognition - INFO - Model retrained successfully
+2025-04-06 19:07:16,305 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_190716.pkl
+2025-04-06 19:07:16,313 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_190716.pkl
+2025-04-06 19:07:16,314 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:08:48,870 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_190716.pkl
+2025-04-06 19:08:48,870 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_190716.pkl
+2025-04-06 19:08:48,871 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:08:48,872 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:08:48,872 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:10:59,410 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_191044.pkl
+2025-04-06 19:10:59,421 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_191044.pkl
+2025-04-06 19:10:59,422 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:10:59,423 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:10:59,423 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:14:13,425 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_191401.pkl
+2025-04-06 19:14:13,436 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_191401.pkl
+2025-04-06 19:14:13,437 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:14:13,438 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:14:13,438 - FaceRecognition - INFO - Initialized with users: {1: 'Athira S', 2: 'Aiswarya S', 3: 'Suma G N'}
+2025-04-06 19:24:04,389 - FaceRecognition - WARNING - No model files found.
+2025-04-06 19:24:04,389 - FaceRecognition - WARNING - No model found. Please train a model first.
+2025-04-06 19:24:04,391 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:24:04,391 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3'}
+2025-04-06 19:25:09,920 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_192458.pkl
+2025-04-06 19:25:09,932 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_192458.pkl
+2025-04-06 19:25:09,934 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:25:09,935 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:25:09,935 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3'}
+2025-04-06 19:26:31,569 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_192458.pkl
+2025-04-06 19:26:31,569 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_192458.pkl
+2025-04-06 19:26:31,570 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:26:31,570 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:26:31,571 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3'}
+2025-04-06 19:26:31,824 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Athira S.jpg
+2025-04-06 19:26:34,106 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:26:34,106 - FaceTraining - INFO - Training SVM classifier with 3 samples...
+2025-04-06 19:26:34,108 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:26:34,109 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_192634.pkl
+2025-04-06 19:26:50,063 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_192634.pkl
+2025-04-06 19:26:50,076 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_192634.pkl
+2025-04-06 19:26:50,078 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:26:50,079 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:26:50,079 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3', 4: 'Athira S'}
+2025-04-06 19:27:38,934 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_192634.pkl
+2025-04-06 19:27:38,936 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_192634.pkl
+2025-04-06 19:27:38,937 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:27:38,938 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:27:38,938 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3', 4: 'Athira S'}
+2025-04-06 19:28:20,707 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_192809.pkl
+2025-04-06 19:28:20,720 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_192809.pkl
+2025-04-06 19:28:20,721 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:28:20,721 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:28:20,722 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3', 4: 'Athira S'}
+2025-04-06 19:30:55,466 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_193036.pkl
+2025-04-06 19:30:55,476 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_193036.pkl
+2025-04-06 19:30:55,477 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:30:55,478 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:30:55,478 - FaceRecognition - INFO - Initialized with users: {1: 'dummy1', 2: 'dummy2', 3: 'dummy3', 4: 'Athira S'}
+2025-04-06 19:33:28,350 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_193314.pkl
+2025-04-06 19:33:28,875 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_193314.pkl
+2025-04-06 19:33:28,876 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:33:28,876 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:33:28,876 - FaceRecognition - INFO - Initialized with users: {3: 'Athira S', 1: 'amritha', 2: 'aneesh', 4: 'sumeer'}
+2025-04-06 19:33:57,439 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_193314.pkl
+2025-04-06 19:33:57,440 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_193314.pkl
+2025-04-06 19:33:57,440 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:33:57,441 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:33:57,441 - FaceRecognition - INFO - Initialized with users: {3: 'Athira S', 1: 'amritha', 2: 'aneesh', 4: 'sumeer'}
+2025-04-06 19:35:00,231 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_193452.pkl
+2025-04-06 19:35:00,242 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_193452.pkl
+2025-04-06 19:35:00,242 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:35:00,243 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:35:00,244 - FaceRecognition - INFO - Initialized with users: {3: 'Athira S', 1: 'amritha', 2: 'aneesh', 4: 'sumeer'}
+2025-04-06 19:38:07,836 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_193452.pkl
+2025-04-06 19:38:08,352 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_193452.pkl
+2025-04-06 19:38:08,353 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:38:08,354 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:38:08,354 - FaceRecognition - INFO - Initialized with users: {3: 'Athira S', 1: 'amritha', 2: 'aneesh', 4: 'sumeer'}
+2025-04-06 19:40:42,416 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_194012.pkl
+2025-04-06 19:40:42,427 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_194012.pkl
+2025-04-06 19:40:42,428 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:40:42,429 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:40:42,429 - FaceRecognition - INFO - Initialized with users: {1: 'amritha', 2: 'aneesh', 3: 'sumeer'}
+2025-04-06 19:41:16,294 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_194012.pkl
+2025-04-06 19:41:16,295 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_194012.pkl
+2025-04-06 19:41:16,296 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:41:16,296 - FaceRecognition - INFO - Loaded information for 3 users
+2025-04-06 19:41:16,296 - FaceRecognition - INFO - Initialized with users: {1: 'amritha', 2: 'aneesh', 3: 'sumeer'}
+2025-04-06 19:41:16,562 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Athira S.jpg
+2025-04-06 19:41:18,848 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 19:41:18,848 - FaceTraining - INFO - Training SVM classifier with 3 samples...
+2025-04-06 19:41:18,851 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 19:41:18,852 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_194118.pkl
+2025-04-06 19:41:39,648 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_194130.pkl
+2025-04-06 19:41:40,227 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_194130.pkl
+2025-04-06 19:41:40,229 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:41:40,230 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:41:40,230 - FaceRecognition - INFO - Initialized with users: {4: 'Athira S', 1: 'amritha', 2: 'aneesh', 3: 'sumeer'}
+2025-04-06 19:42:37,303 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_194219.pkl
+2025-04-06 19:42:37,821 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_194219.pkl
+2025-04-06 19:42:37,822 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:42:37,823 - FaceRecognition - INFO - Loaded information for 4 users
+2025-04-06 19:42:37,823 - FaceRecognition - INFO - Initialized with users: {4: 'Athira S', 1: 'amritha', 2: 'aneesh', 3: 'sumeer'}
+2025-04-06 19:54:16,181 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_195404.pkl
+2025-04-06 19:54:16,803 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_195404.pkl
+2025-04-06 19:54:16,803 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:54:16,804 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:54:16,804 - FaceRecognition - INFO - Initialized with users: {2: 'Aiswarya S', 1: 'Athira S'}
+2025-04-06 19:54:30,272 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:30,425 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,077 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,231 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,387 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,591 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,743 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:31,923 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,086 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,278 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,467 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,609 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,787 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:32,945 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:33,103 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:33,820 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,020 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,212 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,491 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,677 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,839 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:54:34,987 - FaceRecognition - ERROR - User ID 1 not found in database
+2025-04-06 19:58:49,024 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_195837.pkl
+2025-04-06 19:58:49,548 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_195837.pkl
+2025-04-06 19:58:49,549 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:58:49,550 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 19:58:49,550 - FaceRecognition - INFO - Initialized with users: {1: 'Aiswarya S', 2: 'Athira S'}
+2025-04-06 19:58:58,241 - FaceRecognition - ERROR - User ID 2 not found in database
+2025-04-06 19:58:59,711 - FaceRecognition - ERROR - User ID 2 not found in database
+2025-04-06 19:59:01,249 - FaceRecognition - ERROR - User ID 2 not found in database
+2025-04-06 20:01:22,270 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_195837.pkl
+2025-04-06 20:01:22,802 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_195837.pkl
+2025-04-06 20:01:22,803 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:01:22,804 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:01:22,804 - FaceRecognition - INFO - Initialized with users: {1: 'Aiswarya S', 2: 'Athira S'}
+2025-04-06 20:01:36,090 - FaceRecognition - INFO - User ID 2 not found in users table, creating new user record
+2025-04-06 20:01:36,090 - FaceRecognition - ERROR - Error recording attendance: datatype mismatch
+2025-04-06 20:13:24,751 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_201316.pkl
+2025-04-06 20:13:25,308 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_201316.pkl
+2025-04-06 20:13:25,309 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:13:25,310 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:13:25,310 - FaceRecognition - INFO - Initialized with users: {1: 'Aiswarya S', 2: 'Athira S'}
+2025-04-06 20:13:36,227 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:36,400 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:36,558 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:36,710 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:36,927 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,118 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,296 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,461 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,615 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,762 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:37,927 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:38,415 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:38,732 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:13:38,919 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:19,153 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_201412.pkl
+2025-04-06 20:14:19,667 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_201412.pkl
+2025-04-06 20:14:19,667 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:14:19,667 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:14:19,667 - FaceRecognition - INFO - Initialized with users: {1: 'Aiswarya S', 2: 'Athira S'}
+2025-04-06 20:14:28,090 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:28,255 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:28,402 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:28,570 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:28,924 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:29,261 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:29,586 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:29,771 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:29,924 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:30,246 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:30,409 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:30,579 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:30,737 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:30,938 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:31,094 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:31,394 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:31,546 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:33,480 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:14:33,789 - FaceRecognition - ERROR - Error recording attendance: no such column: user_id
+2025-04-06 20:42:40,578 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_204222.pkl
+2025-04-06 20:42:41,120 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_204222.pkl
+2025-04-06 20:42:41,121 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:42:41,122 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:42:41,122 - FaceRecognition - INFO - Initialized with users: {'S101': 'Aiswarya S', 'S102': 'Athira S'}
+2025-04-06 20:42:50,760 - FaceRecognition - INFO - Recording attendance for user: Athira S (ID: S102)
+2025-04-06 20:42:50,761 - FaceRecognition - INFO - Created new attendance record for user Athira S (ID: S102)
+2025-04-06 20:43:20,345 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_204222.pkl
+2025-04-06 20:43:20,347 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_204222.pkl
+2025-04-06 20:43:20,348 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:43:20,349 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 20:43:20,349 - FaceRecognition - INFO - Initialized with users: {'S101': 'Aiswarya S', 'S102': 'Athira S'}
+2025-04-06 20:43:30,493 - FaceRecognition - INFO - Recording attendance for user: Athira S (ID: S102)
+2025-04-06 20:43:30,495 - FaceRecognition - INFO - Updated last_seen for user Athira S (ID: S102)
