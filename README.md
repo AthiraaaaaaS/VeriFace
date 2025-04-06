@@ -1,127 +1,97 @@
-# VeriFace : An AI powered Attendance Monitoring System
+# VeriFace - AI-Powered Face Recognition Attendance System
 
-## Overview
-The Attendance Monitoring System is a real-time face recognition application built using **PyQt5**, **OpenCV**, and **SQLite**. It allows organizations to monitor attendance using **automated facial recognition**. The system features **live camera monitoring**, an **admin panel**, and an **attendance tracking database**.
-
----
+VeriFace is a modern attendance management system that uses artificial intelligence and face recognition technology to automate the attendance tracking process. The system can detect and recognize multiple faces simultaneously, even at longer distances, making it ideal for various environments.
 
 ## Features
 
-- **Real-Time Face Recognition:** Uses **OpenCV DNN** and **ArcFace ONNX** models for accurate face detection.
-- **Live Camera Monitoring:** Continuous video feed to detect and recognize faces.
-- **Attendance Tracking:** Logs **first seen** and **last seen** timestamps for each user.
-- **Admin Panel:** Secure login for viewing attendance records.
-- **SQLite Database:** Stores user face encodings and attendance logs efficiently.
+### Core Features
 
----
+- **Multi-Face Detection**: Simultaneously detect and recognize multiple faces in a single frame
+- **Long-Distance Recognition**: Improved face detection algorithms for recognizing faces at greater distances
+- **Real-Time Attendance Tracking**: Automatically record attendance when faces are recognized
+- **User Management**: Add, update, and delete users with their face data
+- **Attendance Reports**: View and export attendance records to Excel
+- **Confidence Scoring**: Each recognition includes a confidence score to ensure accuracy
 
-## Technologies Used
+### User Interface
 
-- **Python 3.x**
-- **PyQt5** – GUI framework
-- **OpenCV** – Computer vision and face detection
-- **Face Recognition** – Facial encoding and matching
-- **SQLite3** – Database for storing user information and attendance logs
+- **Modern UI**: Clean, intuitive interface built with PyQt5
+- **Multiple Screens**:
+  - Login Screen: Secure access to the system
+  - Attendance Screen: View and manage attendance records
+  - Registration Screen: Add new users with face capture
+  - User Management Screen: Manage existing users
 
----
+### AI and Machine Learning
 
-## Installation
+- **Face Recognition**: Uses InsightFace for accurate face detection and recognition
+- **Machine Learning Models**:
+  - SVM (Support Vector Machine) classifier for face recognition
+  - KNN (K-Nearest Neighbors) classifier option available
+- **Model Training**: Automatic model training when users are added or removed
+- **Face Encoding**: Efficient face encoding extraction for database storage
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/YourUsername/VeriFace.git
-cd VeriFace
-```
+### Database Management
 
-### 2. Set Up a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+- **SQLite Database**: Stores user information and attendance records
+- **Data Integrity**: Maintains relationships between users and their attendance records
+- **Automatic Cleanup**: Removes related attendance records when a user is deleted
 
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+### Export and Reporting
 
----
+- **Excel Export**: Export attendance records to Excel for further analysis
+- **Date Filtering**: Filter attendance records by date
+- **Comprehensive Reports**: Includes user names, first seen, and last seen times
 
-## Project Structure
+## Technical Details
 
-```
-VeriFace/
-├── models/                     # Pre-trained face recognition models
-│   ├── arcface.onnx            #download link https://huggingface.co/FoivosPar/Arc2Face/blob/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
-│   ├── deploy.prototxt
-│   ├── res10_300x300_ssd.caffemodel
-├── gui/                        # GUI components
-│   ├── camera_module.py        # Camera UI and face recognition
-│   ├── attendance_window.py    # Admin panel for attendance logs
-├── known_faces/                # Folder for storing user images
-├── attendance.db               # SQLite database
-├── attendance.py               # Handles attendance logging
-├── face_recognition_module.py  # Recognizes faces from live video feed
-├── live_camera.py              # Background CCTV-style live monitoring
-├── main.py                     # Launches the application
-├── utils.py                    # Utility functions for database operations
-├── add_user.py                 # Adds new users to the database
-├── requirements.txt            # Required Python dependencies
-└── README.md                   # Project documentation
-```
+### System Requirements
 
----
+- Python 3.6+
+- OpenCV
+- PyQt5
+- NumPy
+- Pandas
+- scikit-learn
+- InsightFace
+- SQLite3
+
+### Directory Structure
+
+- `models/`: Stores trained face recognition models
+- `known_faces/`: Contains face images of registered users
+- `face_data/`: Stores face encodings and labels
+- `gui/`: Contains UI components and screens
+- `attendance.db`: SQLite database for user and attendance data
+
+### Key Components
+
+- `face_recognition.py`: Core face recognition functionality
+- `train_face_model.py`: Model training and management
+- `attendance_ui.py`: User interface implementation
+- `ai_integration.py`: AI system integration
 
 ## Usage
 
-### 1. Adding a User
-To add a new user with their face encoding:
-```bash
-python add_user.py "John Doe" "known_faces/johndoe.jpg"
-```
+1. **Login**: Enter the admin password to access the system
+2. **Register Users**: Add new users with their face images
+3. **Record Attendance**: The system automatically recognizes faces and records attendance
+4. **Manage Users**: Add, update, or delete users as needed
+5. **View Reports**: Check attendance records and export to Excel
 
-### 2. Running the Application
-```bash
-python main.py
-```
-This will:
-- Open the **camera interface**
-- Recognize faces and **log attendance**
-- Allow admins to **view attendance records**
+## Error Handling
 
-### 3. Admin Login
-- Click **"Login as Admin"**
-- Enter the password (**default: admin123**)
-- View **first seen** and **last seen** timestamps
+The system includes comprehensive error handling for various scenarios:
 
----
-
-## Database Schema
-
-### Users Table (`users`)
-| Column  | Type    | Description        |
-|---------|--------|--------------------|
-| `id`    | INTEGER | Unique user ID |
-| `name`  | TEXT   | User’s full name  |
-| `encoding` | BLOB | Face encoding for recognition |
-
-### Attendance Table (`attendance`)
-| Column  | Type    | Description        |
-|---------|--------|--------------------|
-| `id`    | INTEGER | Unique record ID |
-| `user_id` | INTEGER | References `users.id` |
-| `first_seen` | TEXT | First time user was detected |
-| `last_seen` | TEXT | Last recorded presence |
-
----
+- **Insufficient Users**: Clear messages when there aren't enough users to train the model
+- **Face Detection Failures**: Helpful guidance when faces can't be detected in images
+- **Database Errors**: Graceful handling of database connection and query issues
+- **Model Training Failures**: Detailed error messages with traceback information
 
 ## Future Enhancements
 
-- **Multi-camera support** for large-scale implementations.
-- **Cloud integration** for remote attendance tracking.
-- **Mobile application** for on-the-go access.
-- **Integration with RFID and biometrics** for multi-factor authentication.
-
----
-
-## License
-This project is licensed under the **MIT License**.
+- Mobile application for remote attendance tracking
+- Cloud synchronization for multi-location deployment
+- Advanced analytics and reporting features
+- Integration with HR management systems
+- Biometric authentication options

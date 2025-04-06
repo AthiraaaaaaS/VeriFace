@@ -1,0 +1,7 @@
+2025-04-06 12:40:10,331 - FaceModelTraining - INFO - Starting face model training process...
+2025-04-06 12:40:10,335 - FaceModelTraining - INFO - Face encodings and labels saved to face_data\face_encodings_20250406_124010.pkl
+2025-04-06 12:40:10,336 - FaceModelTraining - INFO - Using SVM classifier
+2025-04-06 12:40:10,337 - FaceModelTraining - INFO - Training SVM classifier with 3 samples...
+2025-04-06 12:40:10,344 - FaceModelTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 12:40:10,345 - FaceModelTraining - INFO - Classifier saved to models\face_classifier_svm_20250406_124010.pkl
+2025-04-06 12:40:10,345 - FaceModelTraining - INFO - Face model training completed successfully.

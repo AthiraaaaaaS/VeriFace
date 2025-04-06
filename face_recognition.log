@@ -1,0 +1,28 @@
+2025-04-06 14:00:55,176 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_135635.pkl
+2025-04-06 14:00:55,177 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_135635.pkl
+2025-04-06 14:00:55,180 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 14:01:40,321 - FaceRecognition - INFO - Recorded new attendance for user 10
+2025-04-06 14:01:51,626 - FaceRecognition - INFO - Found latest model: models\face_recognition_svm_20250406_135635.pkl
+2025-04-06 14:01:51,627 - FaceRecognition - INFO - Model loaded from models\face_recognition_svm_20250406_135635.pkl
+2025-04-06 14:01:51,630 - FaceRecognition - INFO - Loaded information for 2 users
+2025-04-06 14:01:52,149 - FaceRecognition - INFO - Successfully extracted face encoding from: known_faces\Meenu S.jpg
+2025-04-06 14:01:55,436 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 14:01:55,436 - FaceTraining - INFO - Training SVM classifier with 2 samples...
+2025-04-06 14:01:55,440 - FaceTraining - INFO - Classifier accuracy: 0.00
+2025-04-06 14:01:55,442 - FaceTraining - INFO - Classifier saved to models\face_recognition_svm_20250406_140155.pkl
+2025-04-06 14:02:12,772 - FaceTraining - INFO - Using SVM classifier
+2025-04-06 14:02:12,772 - FaceTraining - INFO - Training SVM classifier with 1 samples...
+2025-04-06 14:02:12,774 - FaceTraining - ERROR - Error training classifier: The number of classes has to be greater than one; got 1 class
+2025-04-06 14:02:12,780 - FaceTraining - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\sumee\OneDrive\Desktop\VeriFace\train_face_model.py", line 130, in train_face_classifier
+    classifier.fit(X_train, y_train)
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\base.py", line 1151, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 199, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sumee\anaconda3\envs\myenv\Lib\site-packages\sklearn\svm\_base.py", line 747, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+

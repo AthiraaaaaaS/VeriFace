@@ -1,6 +1,13 @@
 import sqlite3
 import numpy as np
 from datetime import datetime  
+import os
+import sys
+
+# Add the current directory to the path so we can import from the root
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from face_recognition import FaceRecognizer
 
 WORK_END_TIME = "20:00:00"  # 8 PM
 
@@ -60,22 +67,15 @@ def save_attendance(user_id):
 
 
 def get_known_faces():
-    conn = sqlite3.connect("attendance.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, name, encoding FROM users")
-    data = cursor.fetchall()
-    conn.close()
-
-    user_ids = []
-    known_names = []
-    known_encodings = []
-
-    for row in data:
-        user_id, name, encoding_blob = row
-        encoding = np.frombuffer(encoding_blob, dtype=np.float32)
-        user_ids.append(user_id)
-        known_names.append(name)
-        known_encodings.append(encoding)
-
-    return known_names, known_encodings, user_ids
+    """
+    Get all known faces from the database.
+    
+    Returns:
+        Tuple of (known_names, known_encodings, user_ids)
+    """
+    # Initialize face recognizer
+    recognizer = FaceRecognizer()
+    
+    # Use the method from the FaceRecognizer class
+    return recognizer.get_known_faces()
 
