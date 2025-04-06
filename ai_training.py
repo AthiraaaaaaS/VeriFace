@@ -137,9 +137,9 @@ class VeriFaceAI:
             
             # Get attendance records with user information
             cursor.execute("""
-                SELECT users.id, users.name, attendance.first_seen, attendance.last_seen
+                SELECT users.user_id, users.name, attendance.first_seen, attendance.last_seen
                 FROM attendance
-                JOIN users ON attendance.user_id = users.id
+                JOIN users ON attendance.user_id = users.user_id
                 ORDER BY attendance.first_seen
             """)
             

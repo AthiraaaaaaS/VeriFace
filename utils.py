@@ -19,7 +19,7 @@ def fetch_attendance(user_phone):
     cursor.execute("""
         SELECT users.name, attendance.first_seen, attendance.last_seen
         FROM attendance
-        INNER JOIN users ON attendance.user_id = users.id
+        INNER JOIN users ON attendance.user_id = users.user_id
         WHERE users.phone = ? ORDER BY attendance.first_seen DESC LIMIT 1
     """, (user_phone,))
     
@@ -78,4 +78,45 @@ def get_known_faces():
     
     # Use the method from the FaceRecognizer class
     return recognizer.get_known_faces()
+
+def verify_database():
+    """Verify database structure and recent records."""
+    try:
+        conn = sqlite3.connect("attendance.db")
+        cursor = conn.cursor()
+        
+        # Check tables
+        print("\n=== Database Tables ===")
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+        tables = cursor.fetchall()
+        for table in tables:
+            print(f"\nTable: {table[0]}")
+            cursor.execute(f"PRAGMA table_info({table[0]})")
+            columns = cursor.fetchall()
+            print("Columns:", columns)
+        
+        # Check recent attendance records
+        print("\n=== Recent Attendance Records ===")
+        cursor.execute("""
+            SELECT 
+                attendance.user_id,
+                users.name,
+                attendance.first_seen,
+                attendance.last_seen
+            FROM attendance 
+            JOIN users ON attendance.user_id = users.user_id 
+            ORDER BY attendance.first_seen DESC 
+            LIMIT 5
+        """)
+        records = cursor.fetchall()
+        for record in records:
+            print(record)
+            
+        conn.close()
+        
+    except Exception as e:
+        print(f"Error verifying database: {e}")
+
+# Add this to your initialization code or run it manually to check the database
+verify_database()
 

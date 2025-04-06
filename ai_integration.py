@@ -85,17 +85,16 @@ class VeriFaceAIIntegration:
             # Create users table if it doesn't exist
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS users (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT,
+                    user_id TEXT PRIMARY KEY,
+                    name TEXT UNIQUE,
                     encoding BLOB,
                     phone TEXT,
-                    email TEXT,
-                    image_path TEXT
+                    email TEXT
                 )
             """)
             
             # Check if user already exists
-            cursor.execute("SELECT id FROM users WHERE name = ?", (name,))
+            cursor.execute("SELECT user_id FROM users WHERE name = ?", (name,))
             existing_user = cursor.fetchone()
             
             if existing_user:
@@ -150,7 +149,7 @@ class VeriFaceAIIntegration:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
             
-            cursor.execute("SELECT id, name FROM users WHERE id = ?", (user_id,))
+            cursor.execute("SELECT user_id, name FROM users WHERE id = ?", (user_id,))
             user = cursor.fetchone()
             
             conn.close()
@@ -182,11 +181,7 @@ class VeriFaceAIIntegration:
             
             # Check if attendance already recorded for today
             today = datetime.now().strftime("%Y-%m-%d")
-            cursor.execute("""
-                SELECT id, first_seen, last_seen 
-                FROM attendance 
-                WHERE user_id = ? AND DATE(first_seen) = ?
-            """, (user_id, today))
+            cursor.execute("SELECT user_id, name FROM users WHERE user_id = ?", (str(user_id),))
             
             existing_record = cursor.fetchone()
             
@@ -195,7 +190,7 @@ class VeriFaceAIIntegration:
                 cursor.execute("""
                     UPDATE attendance 
                     SET last_seen = ? 
-                    WHERE id = ?
+                    WHERE user_id = ?
                 """, (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), existing_record[0]))
                 
                 logger.info(f"Updated attendance for user {user_id}")
@@ -272,8 +267,8 @@ class VeriFaceAIIntegration:
                 query = """
                     SELECT users.name, attendance.first_seen, attendance.last_seen
                     FROM attendance
-                    JOIN users ON attendance.user_id = users.id
-                    WHERE users.id = ? AND attendance.first_seen >= ?
+                    JOIN users ON attendance.user_id = users.user_id
+                    WHERE users.user_id = ? AND attendance.first_seen >= ?
                     ORDER BY attendance.first_seen
                 """
                 cursor.execute(query, (user_id, start_date.strftime("%Y-%m-%d")))
@@ -281,7 +276,7 @@ class VeriFaceAIIntegration:
                 query = """
                     SELECT users.name, attendance.first_seen, attendance.last_seen
                     FROM attendance
-                    JOIN users ON attendance.user_id = users.id
+                    JOIN users ON attendance.user_id = users.user_id
                     WHERE attendance.first_seen >= ?
                     ORDER BY attendance.first_seen
                 """
