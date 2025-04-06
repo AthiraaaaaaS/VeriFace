@@ -1,6 +1,6 @@
-# VeriFace - AI-Powered Face Recognition Attendance System
+# VeriFace - an AI-Powered Attendance Monitoring System
 
-VeriFace is a modern attendance management system that uses artificial intelligence and face recognition technology to automate the attendance tracking process. The system can detect and recognize multiple faces simultaneously, even at longer distances, making it ideal for various environments.
+VeriFace is an AI-Powered Attendance Monitoring Systemm that uses artificial intelligence and face recognition technology to automate the attendance tracking process. The system can detect and recognize multiple faces simultaneously, even at longer distances, making it ideal for various environments.
 
 ## Features
 
